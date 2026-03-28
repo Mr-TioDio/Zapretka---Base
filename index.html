@@ -2,23 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой Мессенджер</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Экран входа -->
-    <div id="login-screen" style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+    <div id="login-screen">
         <h2>Добро пожаловать!</h2>
         <input type="text" id="username-input" placeholder="Введите ваше имя...">
         <button id="login-button">Войти в чат</button>
     </div>
 
-    <!-- Окно чата (скрыто до входа) -->
-    <div id="chat-container" style="display: none; width: 400px; height: 500px; flex-direction: column; border: 1px solid #ccc; margin: 0 auto;">
-        <div id="messages" style="flex-grow: 1; padding: 10px; overflow-y: auto;"></div>
-        <div class="input-area" style="display: flex; padding: 10px;">
-            <input id="input" autocomplete="off" style="flex-grow: 1;" />
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div class="input-area">
+            <input id="input" autocomplete="off" />
             <button id="send">Отправить</button>
         </div>
     </div>
