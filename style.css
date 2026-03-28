@@ -1,11 +1,131 @@
-body { font-family: sans-serif; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5; /* Светло-серый фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Минимальная высота, чтобы центрировать */
+}
 
-#login-screen { display: flex; flex-direction: column; align-items: center; margin-top: 100px; }
+#login-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-#chat-container { display: none; width: 400px; height: 500px; flex-direction: column; border: 1px solid #ccc; margin: 0 auto; }
+#login-screen h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
 
-#messages { flex-grow: 1; padding: 10px; overflow-y: auto; border-bottom: 1px solid #ccc; }
+#username-input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    font-size: 16px;
+}
 
-.input-area { display: flex; padding: 10px; }
+#login-button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-#input { flex-grow: 1; }
+#login-button:hover {
+    background: #0056b3;
+}
+
+#chat-container {
+    display: none; /* Скрыт по умолчанию, показывается после ввода имени */
+    width: 100%;
+    max-width: 500px; /* Максимальная ширина на десктопе */
+    height: 90vh; /* Высота как 90% видимой области */
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Чтобы внутренние элементы не вылезали */
+}
+
+#messages {
+    flex-grow: 1; /* Занимает всё доступное место */
+    padding: 15px;
+    overflow-y: auto; /* Прокрутка, если сообщений много */
+    border-bottom: 1px solid #eee; /* Тонкая линия между сообщениями и полем ввода */
+}
+
+.message {
+    background: #e9ecef; /* Светлый фон для сообщений */
+    padding: 8px 12px;
+    border-radius: 15px; /* Скругленные углы */
+    margin-bottom: 10px;
+    width: fit-content; /* Ширина по содержимому */
+    max-width: 80%; /* Максимальная ширина сообщения */
+    word-wrap: break-word; /* Перенос слов, если очень длинные */
+}
+
+.message b {
+    color: #007bff; /* Цвет имени */
+}
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee; /* Тонкая линия */
+}
+
+#input {
+    flex-grow: 1; /* Поле ввода занимает всё место */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#send {
+    padding: 10px 20px;
+    background: #28a745; /* Зеленая кнопка */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#send:hover {
+    background: #218838;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 600px) {
+    #chat-container {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+    }
+    #login-screen {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        justify-content: center;
+    }
+    #username-input {
+        width: 80%;
+    }
+}
