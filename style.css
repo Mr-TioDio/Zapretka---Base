@@ -1,0 +1,5 @@
+body { display: flex; justify-content: center; height: 100vh; margin: 0; }
+#chat-container { width: 400px; display: flex; flex-direction: column; height: 100vh; border: 1px solid #ccc; }
+#messages { flex-grow: 1; padding: 10px; overflow-y: auto; }
+.input-area { display: flex; padding: 10px; }
+input { flex-grow: 1; }
