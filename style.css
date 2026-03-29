@@ -1,131 +1,213 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f0f2f5; /* Светло-серый фон */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Минимальная высота, чтобы центрировать */
 }
 
 #login-screen {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#username-input, #description-input {
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#username-input:focus, #description-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#description-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.avatar-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    gap: 0.5rem;
 }
 
-#login-screen h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-#username-input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 250px;
-    font-size: 16px;
+.avatar-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #667eea;
+    display: none;
 }
 
 #login-button {
-    padding: 10px 20px;
-    background: #007bff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 #login-button:hover {
-    background: #0056b3;
+    transform: translateY(-2px);
 }
 
 #chat-container {
-    display: none; /* Скрыт по умолчанию, показывается после ввода имени */
-    width: 100%;
-    max-width: 500px; /* Максимальная ширина на десктопе */
-    height: 90vh; /* Высота как 90% видимой области */
-    flex-direction: column;
+    display: none;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    overflow: hidden; /* Чтобы внутренние элементы не вылезали */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-right: 1px solid #e1e5e9;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e1e5e9;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friends-list h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+#friends-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 #messages {
-    flex-grow: 1; /* Занимает всё доступное место */
-    padding: 15px;
-    overflow-y: auto; /* Прокрутка, если сообщений много */
-    border-bottom: 1px solid #eee; /* Тонкая линия между сообщениями и полем ввода */
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background: #fff;
 }
 
 .message {
-    background: #e9ecef; /* Светлый фон для сообщений */
-    padding: 8px 12px;
-    border-radius: 15px; /* Скругленные углы */
-    margin-bottom: 10px;
-    width: fit-content; /* Ширина по содержимому */
-    max-width: 80%; /* Максимальная ширина сообщения */
-    word-wrap: break-word; /* Перенос слов, если очень длинные */
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
 }
 
-.message b {
-    color: #007bff; /* Цвет имени */
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-content {
+    background: #f1f3f5;
+    padding: 0.75rem;
+    border-radius: 12px;
+    max-width: 70%;
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 0.25rem;
 }
 
 .input-area {
     display: flex;
-    padding: 15px;
-    border-top: 1px solid #eee; /* Тонкая линия */
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e1e5e9;
 }
 
 #input {
-    flex-grow: 1; /* Поле ввода занимает всё место */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
     font-size: 16px;
 }
 
 #send {
-    padding: 10px 20px;
-    background: #28a745; /* Зеленая кнопка */
+    background: #667eea;
     color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-left: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-#send:hover {
-    background: #218838;
-}
-
-/* Адаптивность для маленьких экранов */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #chat-container {
-        width: 100%;
+        flex-direction: column;
         height: 100vh;
-        margin: 0;
         border-radius: 0;
     }
-    #login-screen {
+    
+    #sidebar {
         width: 100%;
-        height: 100vh;
-        margin: 0;
-        justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid #e1e5e9;
     }
-    #username-input {
-        width: 80%;
+    
+    .login-container {
+        padding: 1rem;
     }
 }

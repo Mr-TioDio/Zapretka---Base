@@ -2,22 +2,53 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="app">
+        <!-- Экран входа -->
+        <div id="login-screen">
+            <div class="login-container">
+                <h2>Добро пожаловать!</h2>
+                <input type="text" id="username-input" placeholder="Введите ваше имя...">
+                
+                <div class="avatar-section">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                    <button onclick="document.getElementById('avatar-upload').click()">Выбрать аватар</button>
+                    <img id="avatar-preview" src="" class="avatar-preview">
+                </div>
 
-    <div id="login-screen">
-        <h2>Добро пожаловать!</h2>
-        <input type="text" id="username-input" placeholder="Введите ваше имя...">
-        <button id="login-button">Войти в чат</button>
-    </div>
+                <textarea id="description-input" placeholder="Расскажите о себе..."></textarea>
+                
+                <button id="login-button">Войти в чат</button>
+            </div>
+        </div>
 
-    <div id="chat-container" style="display: none;"> <!-- Скрываем чат по умолчанию -->
-        <div id="messages"></div>
-        <div class="input-area">
-            <input id="input" autocomplete="off" />
-            <button id="send">Отправить</button>
+        <!-- Основной интерфейс -->
+        <div id="chat-container" style="display: none;">
+            <!-- Боковая панель с друзьями -->
+            <div id="sidebar">
+                <div class="user-profile">
+                    <img id="current-user-avatar" src="" class="avatar">
+                    <span id="current-user-name"></span>
+                </div>
+                
+                <div class="friends-list">
+                    <h3>Друзья</h3>
+                    <div id="friends-container"></div>
+                </div>
+            </div>
+
+            <!-- Область чата -->
+            <div id="chat-area">
+                <div id="messages"></div>
+                <div class="input-area">
+                    <input id="input" autocomplete="off" placeholder="Введите сообщение...">
+                    <button id="send">Отправить</button>
+                </div>
+            </div>
         </div>
     </div>
 
