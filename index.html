@@ -2,57 +2,29 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Blood Chat</title>
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-    <div id="app">
-        <!-- Экран входа -->
-        <div id="login-screen">
-            <div class="login-container">
-                <h2>Добро пожаловать!</h2>
-                <input type="text" id="username-input" placeholder="Введите ваше имя...">
-                
-                <div class="avatar-section">
-                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
-                    <button onclick="document.getElementById('avatar-upload').click()">Выбрать аватар</button>
-                    <img id="avatar-preview" src="" class="avatar-preview">
-                </div>
-
-                <textarea id="description-input" placeholder="Расскажите о себе..."></textarea>
-                
-                <button id="login-button">Войти в чат</button>
-            </div>
-        </div>
-
-        <!-- Основной интерфейс -->
-        <div id="chat-container" style="display: none;">
-            <!-- Боковая панель с друзьями -->
-            <div id="sidebar">
-                <div class="user-profile">
-                    <img id="current-user-avatar" src="" class="avatar">
-                    <span id="current-user-name"></span>
-                </div>
-                
-                <div class="friends-list">
-                    <h3>Друзья</h3>
-                    <div id="friends-container"></div>
-                </div>
-            </div>
-
-            <!-- Область чата -->
-            <div id="chat-area">
-                <div id="messages"></div>
-                <div class="input-area">
-                    <input id="input" autocomplete="off" placeholder="Введите сообщение...">
-                    <button id="send">Отправить</button>
-                </div>
-            </div>
-        </div>
+    <div id="login-screen">
+        <h2>Вход в Бездну</h2>
+        <input type="text" id="username-input" placeholder="Твое имя...">
+        <button id="login-button">Войти</button>
     </div>
 
+    <div id="chat-container" style="display: none;">
+        <div class="user-info">Вы: <span id="current-user-name"></span></div>
+        <div id="messages"></div>
+        <div class="input-area">
+            <input id="input" autocomplete="off" placeholder="Пиши сюда...">
+            <button id="send">Отправить</button>
+        </div>
+        <div class="friend-adder">
+            <input id="friend-name" placeholder="Ник друга...">
+            <button id="add-friend-btn">Добавить в друзья</button>
+        </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
